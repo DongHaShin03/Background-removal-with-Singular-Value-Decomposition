@@ -28,5 +28,22 @@ Titles in the grids emphasize Original video, Background, and Foreground; axes a
 - Increasing k can improve rSVD accuracy at the cost of extra computation.
 - For cleaner foregrounds, consider post‑processing (thresholding or morphology).
 
-# Example
+
+
+# Aspect of the matrix A, in which each column is a single frame of the clip
+
+
+![alt text](https://github.com/DongHaShin03/Background-removal-with-Singular-Value-Decomposition/blob/main/aspect_of_A.png?raw=true)
+
+# Aspect of A after SVD reconstruction
+
+
+![alt text](https://github.com/DongHaShin03/Background-removal-with-Singular-Value-Decomposition/blob/main/randomized_SVD_bkg.png?raw=true)
+
+# Grid of images that represent the split between background and foreground of the frame
+
+
+![alt text](https://github.com/DongHaShin03/Background-removal-with-Singular-Value-Decomposition/blob/main/randomized.png?raw=true)
+
+
 
