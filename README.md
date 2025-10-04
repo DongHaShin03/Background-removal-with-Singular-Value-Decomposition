@@ -2,17 +2,11 @@
 
 This repository demonstrates how to estimate the background of a video and isolate the foreground using Singular Value Decomposition (SVD) and randomized SVD (rSVD). The pipeline converts a video into a 2‑D data matrix, applies SVD/rSVD, and exports comparison figures and frame grids.
 
-# INPUT
+# Input
 - Place your input video at a path such as ./Video_003/Video_003.avi.
 - Frames are downscaled by the scale parameter to reduce computation.
 
-# Method Overview
-1.   Data matrix construction: each frame is converted to grayscale, resized, flattened, and stacked into matrix A with shape (n_pixels, n_frames).
-2.   Standard SVD: A = U Σ Vᵀ. The background (rank‑1) is reconstructed as U[:, :r] Σ[:r, :r] Vᵀ[:r, :] with r = 1.
-3.   Randomized SVD (rSVD): projects A into a random subspace of dimension k to approximate the dominant singular subspace more efficiently.
-4.   Foreground: computed as A − background.
-
-# Generated Outputs
+# Outputs
 - The script saves the following files in the working directory:
 - aspect_of_A.png — visualization of matrix A (frames on x‑axis, pixels on y‑axis).
 - standard_SVD_bkg.png — background estimated with standard SVD (rank‑1).
@@ -21,6 +15,12 @@ This repository demonstrates how to estimate the background of a video and isola
 - randomized.png — grid of original / background / foreground for selected frames (rSVD).
 
 Titles in the grids emphasize Original video, Background, and Foreground; axes are hidden for readability.
+
+# Method Overview
+1.   Data matrix construction: each frame is converted to grayscale, resized, flattened, and stacked into matrix A with shape (n_pixels, n_frames).
+2.   Standard SVD: A = U Σ Vᵀ. The background (rank‑1) is reconstructed as U[:, :r] Σ[:r, :r] Vᵀ[:r, :] with r = 1.
+3.   Randomized SVD (rSVD): projects A into a random subspace of dimension k to approximate the dominant singular subspace more efficiently.
+4.   Foreground: computed as A − background.
 
 # Limitations and Tips
 - The low‑rank background assumption is most valid with a static camera.
